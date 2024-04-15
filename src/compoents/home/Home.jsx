@@ -42,6 +42,16 @@ const Home = () => {
     setNumber(event.target.value); // Update the number state as user types
   };
 
+  const handleButtonClick = () => {
+    fetchFact(); // Call fetchFact when the button is clicked
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      fetchFact(); // Call fetchFact when the "Enter" key is pressed
+    }
+  };
+
   return (
     <div>
       <h1>Math Fact</h1>
@@ -49,9 +59,10 @@ const Home = () => {
         type="number"
         value={number}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown} // Call handleKeyPress on key press
         placeholder="Enter a number"
       />
-      <button onClick={fetchFact}>Get Fact</button>
+      <button onClick={handleButtonClick}>Get Fact</button>
 
       {isLoading ? <p>Loading...</p> : fact ? <p>{fact}</p> : null}
     </div>
