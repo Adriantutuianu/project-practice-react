@@ -5,6 +5,7 @@ const Home = () => {
   const [number, setNumber] = useState(""); // State to hold the user-entered number
   const [fact, setFact] = useState(""); // State to hold the fetched fact
   const [isLoading, setIsLoading] = useState(false); // State to track loading state
+  const [enteredNumber, setEnteredNumber] = useState(""); // State to hold the entered number
 
   const fetchFact = async () => {
     if (!number.trim()) {
@@ -14,27 +15,30 @@ const Home = () => {
 
     setIsLoading(true); // Set loading state to true
 
-    const options = {
-      method: "GET",
-      url: `https://numbersapi.p.rapidapi.com/${number}/math`,
-      params: {
-        fragment: "true",
-        json: "true",
-      },
-      headers: {
-        "X-RapidAPI-Key": "331e31b9e6msh309144b3b69a4c8p1e50aajsn05414db71f6f",
-        "X-RapidAPI-Host": "numbersapi.p.rapidapi.com",
-      },
-    };
-
     try {
-      const response = await axios.request(options);
+      const response = await axios.get(
+        `https://numbersapi.p.rapidapi.com/${number}/math`,
+        {
+          params: {
+            fragment: "true",
+            json: "true",
+          },
+          headers: {
+            "X-RapidAPI-Key":
+              "331e31b9e6msh309144b3b69a4c8p1e50aajsn05414db71f6f",
+            "X-RapidAPI-Host": "numbersapi.p.rapidapi.com",
+          },
+        }
+      );
+
       setFact(response.data.text); // Update state with the fetched fact
+      setEnteredNumber(number); // Store the entered number
     } catch (error) {
       console.error(error);
       alert("Failed to fetch data. Please try again.");
     } finally {
       setIsLoading(false); // Set loading state back to false
+      setNumber(""); // Clear the input field by resetting the number state
     }
   };
 
@@ -42,29 +46,32 @@ const Home = () => {
     setNumber(event.target.value); // Update the number state as user types
   };
 
-  const handleButtonClick = () => {
-    fetchFact(); // Call fetchFact when the button is clicked
-  };
-
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      fetchFact(); // Call fetchFact when the "Enter" key is pressed
-    }
+  const handleFormSubmit = (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    fetchFact(); // Call fetchFact when the form is submitted
   };
 
   return (
     <div>
       <h1>Math Fact</h1>
-      <input
-        type="number"
-        value={number}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown} // Call handleKeyPress on key press
-        placeholder="Enter a number"
-      />
-      <button onClick={handleButtonClick}>Get Fact</button>
+      <form onSubmit={handleFormSubmit}>
+        <input
+          type="number"
+          value={number}
+          onChange={handleInputChange}
+          placeholder="Enter a number"
+        />
+        <button type="submit">Get Fact</button>
+      </form>
 
-      {isLoading ? <p>Loading...</p> : fact ? <p>{fact}</p> : null}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : fact ? (
+        <div>
+          <p>You entered: {enteredNumber}</p>
+          <p>{fact}</p>
+        </div>
+      ) : null}
     </div>
   );
 };
