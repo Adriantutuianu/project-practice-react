@@ -5,8 +5,10 @@ import "./home.css";
 const Home = () => {
   return (
     <>
-      <Api1 />
-      <Api2 />
+      <div className="main-section">
+        <Api1 />
+        <Api2 />
+      </div>
     </>
   );
 };

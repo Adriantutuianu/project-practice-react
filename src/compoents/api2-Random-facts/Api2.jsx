@@ -11,8 +11,8 @@ const Api2 = () => {
       method: "GET",
       url: "https://numbersapi.p.rapidapi.com/random/trivia",
       params: {
-        min: "10",
-        max: "20",
+        min: "1",
+        max: "2000",
         fragment: "true",
         json: "true",
       },
@@ -43,13 +43,15 @@ const Api2 = () => {
 
   return (
     <div>
-      <h1>Random Number Fact</h1>
+      <h1 className="api2-title">Random Number Fact</h1>
+      <button className="api2-button" onClick={handleRefresh}>
+        Refresh
+      </button>
       {number && fact && (
         <p>
           Number: {number} - {fact}
         </p>
       )}
-      <button onClick={handleRefresh}>Refresh</button>
     </div>
   );
 };

@@ -54,7 +54,12 @@ const Api1 = () => {
 
   return (
     <div>
-      <h1>Math Fact</h1>
+      <h1
+        className="
+      api1-title"
+      >
+        Math Fact
+      </h1>
       <form onSubmit={handleFormSubmit}>
         <input
           type="number"
@@ -62,7 +67,9 @@ const Api1 = () => {
           onChange={handleInputChange}
           placeholder="Enter a number"
         />
-        <button type="submit">Get Fact</button>
+        <button className="api1-button" type="submit">
+          Get Fact
+        </button>
       </form>
 
       {isLoading ? (
