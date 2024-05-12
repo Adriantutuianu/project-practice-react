@@ -1,5 +1,4 @@
 import "./header.css";
-
 import React, { useEffect, useState } from "react";
 
 const Header = () => {
@@ -7,7 +6,7 @@ const Header = () => {
 
   useEffect(() => {
     const headerText = "Get Math facts and Random Math Facts";
-    const rainbowColors = ["#ff0000", "#ff7f00", "#ffff00", "#00ff00", "black"]; // Rainbow colors
+    const rainbowColors = ["white", "black"]; //  colors
     let colorIndex = 0;
 
     const interval = setInterval(() => {
@@ -33,14 +32,14 @@ const Header = () => {
         ))
       );
       colorIndex++;
-    }, 500); // Adjust speed of color change here
+    }, 1000); // Adjust speed of color change here
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <header>
-      <div className="rainbow-header">{rainbowText}</div>;
+      <div className="rainbow-header">{rainbowText}</div>
     </header>
   );
 };
