@@ -42,7 +42,7 @@ const Api2 = () => {
   };
 
   return (
-    <div>
+    <div className="api2">
       <h1 className="api2-title">Random Number Fact</h1>
       <button className="api2-button" onClick={handleRefresh}>
         Refresh

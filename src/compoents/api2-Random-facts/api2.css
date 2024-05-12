@@ -1,6 +1,14 @@
+.api2 {
+  margin-top: 70px;
+  height: 250px;
+  border: 2px solid white;
+  border-radius: 4px;
+}
+
 .api2-title {
   font-size: 3.2em;
   line-height: 1.1;
+  margin-top: 20px;
 }
 
 .api2-button {
@@ -13,6 +21,8 @@
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 20px;
+  width: 150px;
 }
 .api2-button:hover {
   border-color: #646cff;

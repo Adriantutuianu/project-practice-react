@@ -32,7 +32,7 @@ const Header = () => {
         ))
       );
       colorIndex++;
-    }, 1000); // Adjust speed of color change here
+    }, 1500); // Adjust speed of color change here
 
     return () => clearInterval(interval);
   }, []);

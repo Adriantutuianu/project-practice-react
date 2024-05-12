@@ -53,7 +53,7 @@ const Api1 = () => {
   };
 
   return (
-    <div>
+    <div className="api1">
       <h1
         className="
       api1-title"
@@ -77,7 +77,7 @@ const Api1 = () => {
       ) : fact ? (
         <div>
           <p>You entered: {enteredNumber}</p>
-          <p>{fact}</p>
+          <p className="fact-result">{fact}</p>
         </div>
       ) : null}
     </div>

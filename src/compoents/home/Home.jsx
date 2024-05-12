@@ -6,8 +6,10 @@ const Home = () => {
   return (
     <>
       <div className="main-section">
-        <Api1 />
-        <Api2 />
+        <div className="api-1and-2">
+          <Api1 />
+          <Api2 />
+        </div>
       </div>
     </>
   );

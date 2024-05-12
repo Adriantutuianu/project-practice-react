@@ -1,6 +1,13 @@
+.api1 {
+  height: 250px;
+  border: 2px solid white;
+  border-radius: 4px;
+}
+
 .api1-title {
   font-size: 3.2em;
   line-height: 1.1;
+  margin-top: 20px;
 }
 
 .api1-button {
@@ -13,7 +20,7 @@
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  margin-left: 20px;
+  margin: 20px;
 }
 .api1-button:hover {
   border-color: #646cff;
@@ -21,4 +28,8 @@
 .api1-button:focus,
 .api1-button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.fact-result {
+  margin-top: 10px;
 }
