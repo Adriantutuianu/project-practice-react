@@ -5,7 +5,7 @@ const Header = () => {
   const [rainbowText, setRainbowText] = useState("");
 
   useEffect(() => {
-    const headerText = "Get Math facts and Random Math Facts";
+    const headerText = "Get Math and Random Math Facts";
     const rainbowColors = ["white", "black"]; //  colors
     let colorIndex = 0;
 
